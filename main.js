@@ -1,6 +1,6 @@
 const base = "https://cdn.jsdelivr.net/gh/AlexGhit/marketing-flamingo";
 
-// Utility to load JS
+// Load JS file
 function loadJS(file) {
   const s = document.createElement("script");
   s.src = `${base}/src/${file}`;
@@ -8,12 +8,24 @@ function loadJS(file) {
   document.body.appendChild(s);
 }
 
-// Auto-load all files in /src
+// Load CSS file
+function loadCSS(file) {
+  const l = document.createElement("link");
+  l.rel = "stylesheet";
+  l.href = `${base}/src/${file}`;
+  document.head.appendChild(l);
+}
+
+// Files to load globally
 const files = [
-  "lang-switch.js",
-  "btn-animate.css",
-  "btn-animate.js",
-  "loader.js",
+  { type: "js", file: "lang-switch.js" },
+  { type: "css", file: "btn-animate.css" },
+  { type: "js", file: "btn-animate.js" },
+  { type: "js", file: "loader.js" }, // optional
 ];
 
-files.forEach(file => loadJS(file));
+// Load everything
+files.forEach(item => {
+  if (item.type === "js") loadJS(item.file);
+  if (item.type === "css") loadCSS(item.file);
+});
