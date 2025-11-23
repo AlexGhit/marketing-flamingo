@@ -12,7 +12,7 @@ function loadJS(file) {
 const files = [
   "lang-switch.js",
   "lang-switch.js",
-
+  "btn-txt-anim.js",
 ];
 
 files.forEach(file => loadJS(file));
