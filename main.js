@@ -11,6 +11,7 @@ function loadJS(file) {
 // Auto-load all files in /src
 const files = [
   "lang-switch.js",
+  "lang-switch.js",
 
 ];
 
